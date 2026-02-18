@@ -3,15 +3,14 @@ import { getAuth, GoogleAuthProvider } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
 import { getStorage } from 'firebase/storage';
 
-// TODO: Replace with your Firebase project config
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT.firebaseapp.com",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_PROJECT.firebasestorage.app",
-  messagingSenderId: "YOUR_SENDER_ID",
-  appId: "YOUR_APP_ID",
-  measurementId: "YOUR_MEASUREMENT_ID"
+  apiKey: "AIzaSyDlNYbpRb0pt1imWxpjmZuGuAEpB6K7_wc",
+  authDomain: "adam-the-cruise-guy.firebaseapp.com",
+  projectId: "adam-the-cruise-guy",
+  storageBucket: "adam-the-cruise-guy.firebasestorage.app",
+  messagingSenderId: "662911634182",
+  appId: "1:662911634182:web:de2ba6b180d1466645ac87",
+  measurementId: "G-PPY9CX48RW"
 };
 
 const app = initializeApp(firebaseConfig);
