@@ -8,17 +8,18 @@ const CRUISE_LINES = [
 ];
 
 const DESTINATIONS = [
-  { name: 'Caribbean', emoji: '🌴', desc: 'Crystal-clear waters & white sand beaches', gradient: 'from-cyan-500 to-teal-600' },
-  { name: 'Mediterranean', emoji: '🏛️', desc: 'Ancient wonders & coastal charm', gradient: 'from-blue-500 to-indigo-600' },
-  { name: 'Alaska', emoji: '🏔️', desc: 'Glaciers, wildlife & breathtaking fjords', gradient: 'from-slate-400 to-blue-500' },
-  { name: 'Northern Europe', emoji: '🌅', desc: 'Norwegian fjords & Baltic capitals', gradient: 'from-purple-500 to-blue-600' },
-  { name: 'Asia & Pacific', emoji: '⛩️', desc: 'Ancient cultures & tropical paradises', gradient: 'from-rose-500 to-orange-500' },
-  { name: 'Transatlantic', emoji: '🚢', desc: 'The classic ocean voyage experience', gradient: 'from-blue-600 to-cyan-500' },
+  { name: 'Caribbean', emoji: '🌴', desc: 'Crystal-clear waters & white sand beaches', gradient: 'from-cyan-500 to-teal-600', img: 'https://images.unsplash.com/photo-1548574505-5e239809ee19?w=600&h=400&fit=crop' },
+  { name: 'Mediterranean', emoji: '🏛️', desc: 'Ancient wonders & coastal charm', gradient: 'from-blue-500 to-indigo-600', img: 'https://images.unsplash.com/photo-1534113414509-0eec2bfb493f?w=600&h=400&fit=crop' },
+  { name: 'Alaska', emoji: '🏔️', desc: 'Glaciers, wildlife & breathtaking fjords', gradient: 'from-slate-400 to-blue-500', img: 'https://images.unsplash.com/photo-1473116763249-2faaef81ccda?w=600&h=400&fit=crop' },
+  { name: 'Northern Europe', emoji: '🌅', desc: 'Norwegian fjords & Baltic capitals', gradient: 'from-purple-500 to-blue-600', img: 'https://images.unsplash.com/photo-1513622470522-26c3c8a854bc?w=600&h=400&fit=crop' },
+  { name: 'Asia & Pacific', emoji: '⛩️', desc: 'Ancient cultures & tropical paradises', gradient: 'from-rose-500 to-orange-500', img: 'https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=600&h=400&fit=crop' },
+  { name: 'Transatlantic', emoji: '🚢', desc: 'The classic ocean voyage experience', gradient: 'from-blue-600 to-cyan-500', img: 'https://images.unsplash.com/photo-1599640842225-85d111c60e6b?w=600&h=400&fit=crop' },
 ];
 
 const TESTIMONIALS = [
   { name: 'Sarah & James M.', trip: 'Mediterranean Cruise, 2024', text: 'Adam made our honeymoon absolutely perfect. Every detail was handled and we had the best cabin on the ship. Can\'t wait to book our next trip with him!' },
   { name: 'The Rodriguez Family', trip: 'Caribbean Cruise, 2024', text: 'First time cruising with kids and Adam thought of everything — kids\' clubs, family excursions, connecting cabins. We\'re already planning trip #2!' },
+  { name: 'David & Marcus T.', trip: 'Alaska Cruise, 2024', text: 'Adam helped us plan the most incredible anniversary trip. He knew exactly which ship and itinerary would be perfect for us. Already booked our next voyage!' },
   { name: 'Mike & Linda K.', trip: 'Alaska Cruise, 2023', text: 'Adam\'s insider knowledge got us upgraded and into excursions that were sold out. His follow-up after booking was exceptional. True professional.' },
 ];
 
@@ -59,7 +60,10 @@ export default function LandingPage({ onSignIn, authError }) {
 
       {/* Hero */}
       <section className="pt-28 pb-20 px-6 relative overflow-hidden">
-        {/* Subtle background gradient */}
+        {/* Background cruise image */}
+        <div className="absolute inset-0 pointer-events-none">
+          <img src="https://images.unsplash.com/photo-1548574505-5e239809ee19?w=1600&h=900&fit=crop" alt="" className="w-full h-full object-cover opacity-[0.07]" />
+        </div>
         <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 via-transparent to-blue-600/5 pointer-events-none" />
         <div className="absolute top-20 right-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-72 h-72 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
@@ -74,7 +78,8 @@ export default function LandingPage({ onSignIn, authError }) {
             </h1>
             <p className="text-lg text-white/60 max-w-xl mb-8 leading-relaxed">
               With 10+ years of cruise industry experience and top rankings at Virgin Voyages, Norwegian, and World Travel Holdings,
-              I craft unforgettable voyages tailored to your dreams. Let me handle every detail so you can focus on the adventure.
+              I craft unforgettable voyages for every traveler. Whether you're celebrating a milestone, planning a family reunion, or
+              escaping with someone special — I handle every detail so you can focus on the adventure.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
               <a href="#contact" className="group px-8 py-3.5 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-xl font-semibold text-white hover:opacity-90 transition text-center flex items-center justify-center gap-2">
@@ -131,6 +136,25 @@ export default function LandingPage({ onSignIn, authError }) {
         </div>
       </section>
 
+      {/* Photo strip */}
+      <section className="py-8 px-6 overflow-hidden">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-hide">
+            {[
+              { src: 'https://images.unsplash.com/photo-1599640842225-85d111c60e6b?w=400&h=250&fit=crop', alt: 'Cruise ship at sea' },
+              { src: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=400&h=250&fit=crop', alt: 'Tropical beach' },
+              { src: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&h=250&fit=crop', alt: 'Sunset beach' },
+              { src: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&h=250&fit=crop', alt: 'Ocean view' },
+              { src: 'https://images.unsplash.com/photo-1580541631950-7282082b02f4?w=400&h=250&fit=crop', alt: 'Mediterranean port' },
+            ].map((photo, i) => (
+              <div key={i} className="flex-shrink-0 w-48 h-28 md:w-56 md:h-32 rounded-xl overflow-hidden border border-white/[0.08]">
+                <img src={photo.src} alt={photo.alt} className="w-full h-full object-cover opacity-60 hover:opacity-80 transition-opacity duration-300" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Why Cruise With Adam */}
       <section id="about" className="py-20 px-6">
         <div className="max-w-5xl mx-auto">
@@ -140,7 +164,7 @@ export default function LandingPage({ onSignIn, authError }) {
             {[
               { icon: <Award className="w-8 h-8" />, title: 'Top-Ranked Agent', desc: 'Consistently ranked among the highest performers at every cruise line and agency I\'ve worked with.' },
               { icon: <Globe className="w-8 h-8" />, title: 'Every Cruise Line', desc: 'Deep knowledge of all major cruise lines, itineraries, cabin categories, and onboard experiences worldwide.' },
-              { icon: <Users className="w-8 h-8" />, title: 'Personal Touch', desc: 'Full consultative service from initial planning through post-cruise follow-up. Your trip, your way, always.' },
+              { icon: <Users className="w-8 h-8" />, title: 'Personal Touch', desc: 'Full consultative service for every kind of traveler — couples, families, solo adventurers, and groups. Your trip, your way, always.' },
             ].map((item, i) => (
               <div key={i} className="group p-6 bg-white/[0.03] border border-white/[0.08] rounded-2xl hover:bg-white/[0.05] hover:border-cyan-500/20 transition-all duration-300">
                 <div className="text-cyan-400 mb-4 group-hover:scale-110 transition-transform">{item.icon}</div>
@@ -162,14 +186,16 @@ export default function LandingPage({ onSignIn, authError }) {
               <a
                 key={i}
                 href="#contact"
-                className="group relative overflow-hidden rounded-2xl border border-white/[0.08] hover:border-white/20 transition-all duration-300"
+                className="group relative overflow-hidden rounded-2xl border border-white/[0.08] hover:border-white/20 transition-all duration-300 aspect-[4/3]"
               >
-                <div className={`absolute inset-0 bg-gradient-to-br ${dest.gradient} opacity-15 group-hover:opacity-25 transition-opacity`} />
-                <div className="relative p-6">
-                  <span className="text-3xl mb-3 block">{dest.emoji}</span>
+                <img src={dest.img} alt={dest.name} className="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-50 group-hover:scale-105 transition-all duration-500" />
+                <div className={`absolute inset-0 bg-gradient-to-t ${dest.gradient} opacity-40`} />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent" />
+                <div className="relative h-full flex flex-col justify-end p-5">
+                  <span className="text-2xl mb-2">{dest.emoji}</span>
                   <h3 className="font-semibold text-lg mb-1">{dest.name}</h3>
-                  <p className="text-xs text-white/40 leading-relaxed">{dest.desc}</p>
-                  <div className="mt-3 flex items-center gap-1 text-xs text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <p className="text-xs text-white/60 leading-relaxed">{dest.desc}</p>
+                  <div className="mt-2 flex items-center gap-1 text-xs text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity">
                     Learn more <ArrowRight className="w-3 h-3" />
                   </div>
                 </div>
@@ -277,7 +303,7 @@ export default function LandingPage({ onSignIn, authError }) {
             <div className="relative">
               <Compass className="w-12 h-12 text-cyan-400 mx-auto mb-4" />
               <h2 className="text-3xl font-bold mb-3">Your Dream Cruise Awaits</h2>
-              <p className="text-white/50 max-w-lg mx-auto mb-8">Whether it's your first voyage or your fiftieth, I'll make it the best one yet. No fees, no hassle — just expert guidance.</p>
+              <p className="text-white/50 max-w-lg mx-auto mb-8">Whether it's your first voyage or your fiftieth, solo or with your favorite people — I'll make it the best one yet. No fees, no hassle — just expert guidance for everyone.</p>
               <a href="#contact" className="inline-flex items-center gap-2 px-8 py-3.5 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-xl font-semibold text-white hover:opacity-90 transition">
                 Get Started <ArrowRight className="w-4 h-4" />
               </a>
@@ -301,6 +327,9 @@ export default function LandingPage({ onSignIn, authError }) {
           </div>
           <p className="text-xs text-white/30 mt-6 flex items-center justify-center gap-1">
             <MapPin className="w-3 h-3" /> Winston-Salem, NC
+          </p>
+          <p className="text-xs text-white/25 mt-3 flex items-center justify-center gap-1.5">
+            <Heart className="w-3 h-3 text-pink-400/50" /> All travelers welcome
           </p>
         </div>
       </section>

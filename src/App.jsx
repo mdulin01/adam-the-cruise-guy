@@ -45,6 +45,10 @@ export default function App() {
     setShowPortal(false);
   };
 
+  const handleBackToSite = () => {
+    setShowPortal(false);
+  };
+
   if (authLoading) {
     return (
       <div className="min-h-screen bg-slate-950 flex items-center justify-center">
@@ -54,7 +58,7 @@ export default function App() {
   }
 
   if (user && showPortal) {
-    return <CRMApp user={user} onSignOut={handleSignOut} />;
+    return <CRMApp user={user} onSignOut={handleSignOut} onBackToSite={handleBackToSite} />;
   }
 
   return (

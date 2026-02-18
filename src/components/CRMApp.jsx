@@ -3,7 +3,7 @@ import {
   LayoutDashboard, Users, Ship, LogOut, Plus, Search, Phone, Mail,
   MessageSquare, Calendar, DollarSign, TrendingUp, UserPlus, Clock,
   ChevronDown, X, Edit3, Trash2, Eye, MapPin, Gift, Tag, MoreVertical,
-  ArrowUpDown, Filter, Activity, Globe, AlertCircle
+  ArrowUpDown, Filter, Activity, Globe, AlertCircle, ExternalLink
 } from 'lucide-react';
 import { useCollection } from '../hooks/useFirestore';
 import { clientStages, contactMethods, leadSources, cruiseLines, bookingStatuses } from '../constants';
@@ -15,7 +15,7 @@ const daysBetween = (d1, d2) => Math.ceil((new Date(d2) - new Date(d1)) / 864000
 const today = () => new Date().toISOString().slice(0, 10);
 
 // ─── Main CRM App ───
-export default function CRMApp({ user, onSignOut }) {
+export default function CRMApp({ user, onSignOut, onBackToSite }) {
   const [activeSection, setActiveSection] = useState('dashboard');
   const [showMobileNav, setShowMobileNav] = useState(false);
 
@@ -60,6 +60,9 @@ export default function CRMApp({ user, onSignOut }) {
         </div>
         <div className="ml-auto flex items-center gap-3">
           <span className="text-xs text-white/40">{user.email}</span>
+          <button onClick={onBackToSite} className="flex items-center gap-1.5 px-3 py-1.5 text-xs text-white/40 hover:text-cyan-400 hover:bg-cyan-500/10 rounded-lg transition" title="Back to website">
+            <ExternalLink className="w-3.5 h-3.5" /> Site
+          </button>
           <button onClick={onSignOut} className="p-2 text-white/40 hover:text-white/70 transition">
             <LogOut className="w-4 h-4" />
           </button>
@@ -82,6 +85,9 @@ export default function CRMApp({ user, onSignOut }) {
                 </button>
               ))}
               <div className="border-t border-white/10 mt-1 pt-1">
+                <button onClick={() => { onBackToSite(); setShowMobileNav(false); }} className="w-full flex items-center gap-3 px-4 py-3 text-sm text-cyan-400">
+                  <ExternalLink className="w-4 h-4" /> Back to Website
+                </button>
                 <button onClick={onSignOut} className="w-full flex items-center gap-3 px-4 py-3 text-sm text-red-400">
                   <LogOut className="w-4 h-4" /> Sign Out
                 </button>
