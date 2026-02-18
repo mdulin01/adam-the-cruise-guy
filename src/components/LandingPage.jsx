@@ -145,7 +145,7 @@ export default function LandingPage({ onSignIn, authError }) {
               { src: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=400&h=250&fit=crop', alt: 'Tropical beach' },
               { src: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&h=250&fit=crop', alt: 'Sunset beach' },
               { src: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&h=250&fit=crop', alt: 'Ocean view' },
-              { src: 'https://images.unsplash.com/photo-1580541631950-7282082b02f4?w=400&h=250&fit=crop', alt: 'Mediterranean port' },
+              { src: 'https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=400&h=250&fit=crop', alt: 'Mediterranean coast' },
             ].map((photo, i) => (
               <div key={i} className="flex-shrink-0 w-48 h-28 md:w-56 md:h-32 rounded-xl overflow-hidden border border-white/[0.08]">
                 <img src={photo.src} alt={photo.alt} className="w-full h-full object-cover opacity-60 hover:opacity-80 transition-opacity duration-300" />
